@@ -23,4 +23,8 @@ $stmt->execute();
 $result = $stmt->get_result();
 $row = $result->fetch_assoc();
 
+$stmt = $mysqli->prepare("UPDATE updateFlagTable SET FLAG = 0 WHERE USERID = ? and ROOMID = ? and SESSIONID = ?");
+
+$stmt->execute();
+
 ?>

@@ -17,7 +17,7 @@ function poll(){
 		data
 		);
 }
-function update(){
+function update(bool){
 	values = {
 		"userId": "val",
 		"sessionId":"sessionToken",
