@@ -1,9 +1,7 @@
 <?php
+require 'defaultConnector.php';
 //server information here
 //need mysqli module installed
-
-
-$mysqli = new mysqli("example.com", "user", "password", "database");
 
 /* Prepared statement, stage 1: prepare */
 $stmt = $mysqli->prepare("UPDATE [YOURDBTABLE] SET READFLAG = ? WHERE USERID = ?");
