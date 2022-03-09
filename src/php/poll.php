@@ -21,6 +21,8 @@ $stmt->execute();
 $result = $stmt->get_result();
 $row = $result->fetch_assoc();
 
+echo json_encode($row);
+
 $stmt = $mysqli->prepare("UPDATE updateFlagTable SET FLAG = 0 WHERE USERID = ? and ROOMID = ? and SESSIONID = ?");
 $stmt->bind_param("iii", $userId,$roomId, $sessionId); 
 
