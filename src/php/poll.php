@@ -14,9 +14,7 @@ $stmt = $mysqli->prepare("SELECT FLAG FROM updateFlagTable TBL WHERE USERID = ? 
 
 /* Prepared statement, stage 2: bind and execute */
 $id = ["your post data"];
-$stmt->bind_param("i", $userId); 
-$stmt->bind_param("i", $roomId); 
-$stmt->bind_param("i", $sessionId); 
+$stmt->bind_param("iii", $userId,$roomId, $sessionId); 
 
 $stmt->execute();
 
@@ -24,6 +22,7 @@ $result = $stmt->get_result();
 $row = $result->fetch_assoc();
 
 $stmt = $mysqli->prepare("UPDATE updateFlagTable SET FLAG = 0 WHERE USERID = ? and ROOMID = ? and SESSIONID = ?");
+$stmt->bind_param("iii", $userId,$roomId, $sessionId); 
 
 $stmt->execute();
 

@@ -13,14 +13,7 @@ $stmt = $mysqli->prepare("UPDATE updateFlagTable SET FLAG = 1 WHERE USERID = ? a
 
 /* Prepared statement, stage 2: bind and execute */
 
-$stmt->bind_param("i", 1);
-$stmt->bind_param("i", $userId); 
-$stmt->bind_param("i", $roomId); 
-$stmt->bind_param("i", $sessionId); 
-
+$stmt->bind_param("iiii", 1, $userId,$roomId,$sessionId);
 $stmt->execute();
-
-$result = $stmt->get_result();
-$row = $result->fetch_assoc();
 
 ?>
