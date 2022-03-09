@@ -4,10 +4,33 @@ docReady(function(){
 });
 
 function poll(){
+	values = {
+		"userId": "val",
+		"sessionId": "sessionToken",
+		"roomId": "roomToken"
+	};
+	data = JSON.stringify(values);
 
+	postRequest("../php/poll.php",
+		function(e){},
+		function(e){console.log("it's an exception "+e)},
+		data
+		);
 }
 function update(){
-	
+	values = {
+		"userId": "val",
+		"sessionId":"sessionToken",
+		"roomId": "roomToken"
+	};
+
+	data = JSON.stringify(values);
+
+	postRequest("../php/update.php",
+		function(e){},
+		function(e){console.log("it's an exception "+e)},
+		data
+		);
 }
 
 function docReady(fn) {
